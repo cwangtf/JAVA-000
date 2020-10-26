@@ -27,7 +27,7 @@ CMS-concurrent-reset 并发重置
 CMS能够跟业务线程并发执行,一般是cpu核数1/4
 堆内存调大调小的结果与前面类似
 # 四 G1 GC
-![G1案例](http://source.icodego.com/g1gc.png)
+![G1案例](http://source.icodego.com/g1gc.png)  
 (G1 Evacuation Pause) (young) 纯年轻代模式转移暂停  
 Concurrent Marking 并发标记  
 initial-mark 初始标记  
