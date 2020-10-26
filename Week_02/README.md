@@ -39,6 +39,7 @@ cleanup 清理
 G1暂停时间更小,它被设计成STW可控的垃圾回收器  
 堆内存调大调小的结果与前面类似
 
+# 压测
 使用压测工具（wrk或sb），演练gateway-server-0.0.1-SNAPSHOT.jar 示例。
 ![压测示例](http://source.icodego.com/sb1.png)
 ![压测示例](http://source.icodego.com/sb2.png)
