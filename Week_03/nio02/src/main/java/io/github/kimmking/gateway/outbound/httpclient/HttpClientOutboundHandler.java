@@ -8,6 +8,7 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpUtil;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -17,6 +18,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.Map;
 
 import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
@@ -43,6 +45,9 @@ public class HttpClientOutboundHandler {
 
     private void fetchGet(final FullHttpRequest inbound, final ChannelHandlerContext channelHandlerContext, final String url) {
         final HttpGet httpGet = new HttpGet(url);
+        for (Map.Entry<String, String> entry : inbound.headers()) {
+            httpGet.setHeader(entry.getKey(), entry.getValue());
+        }
         // Create a custom response handler
         ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 
